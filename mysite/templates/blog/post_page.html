@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+<p><a class="btn btn-outline-warning" href="{{ page.get_parent.url }}">Volver</a></p>
+    <div class="container col-10">
+        <h1 class="mt-3 mb-5">{{ page.title }}</h1>
+        <div class="container" style="color: var(--bs-gray-500);">
+                        {{ page.body | richtext }}
+                        <!--{% for item in page.gallery_images.all %}
+                <div style="float: left; margin: 10px;">
+                    {% image item.image fill-320x240 %}
+                    <p>{{ item.caption }}</p>
+                </div>    
+            {% endfor %}
+
+            {% with authors=page.authors.all %}
+                {% if authors %}
+                    <h3>Posted by: </h3>
+                    <ul>
+                        {% for author in authors %}
+                            <li style="display: inline;">
+                                {% image author.author_image fill-40x60 style="vertical-align: middle" %}
+                                {{ author.image }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}-->
+        </div>
+    </div>
+<style>
+    body{
+        background-color: black;
+    }
+    .container{
+        margin: auto;
+        text-align: center;
+        background-color: black;
+    }
+
+    h1{
+        color: darkgoldenrod;
+    }
+</style>
+{% endblock content %}
